@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Charmu Prime Ventures — Premium IT & Digital Solutions. Computer supply, IT consultancy, data analytics, web development, social media management, and professional writing services in Kenya."/>
+<title>Charmu Prime Ventures | Premium IT & Digital Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,800;1,9..144,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#080808;
+  --ink:#111110;
+  --ink-2:#2a2928;
+  --ink-3:#5a5856;
+  --paper:#faf8f3;
+  --paper-2:#f3f0e8;
+  --paper-3:#ebe7db;
+  --gold:#c8921a;
+  --gold-2:#e8b040;
+  --gold-light:#fdf3de;
+  --gold-mid:rgba(200,146,26,0.18);
+  --white:#ffffff;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --ease:cubic-bezier(0.4,0,0.2,1);
+  --r:6px;--rl:14px;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+button{cursor:pointer;border:none;background:none;font-family:var(--sans)}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--paper-2)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+
+/* ── NAV ── */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:200;padding:1.1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:background .35s var(--ease),box-shadow .35s var(--ease),padding .35s var(--ease)}
+.navbar.scrolled{background:rgba(250,248,243,0.96);backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(0,0,0,0.08);padding:.75rem 2.5rem}
+.nav-logo{display:flex;align-items:center;gap:10px;font-size:1.15rem;font-weight:600;color:var(--ink)}
+.logo-mark{width:36px;height:36px;background:var(--gold);color:var(--white);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.1rem;font-weight:800;flex-shrink:0;transition:transform .3s var(--ease)}
+.nav-logo:hover .logo-mark{transform:rotate(-8deg) scale(1.05)}
+.logo-text em{font-style:italic;color:var(--gold);font-family:var(--serif)}
+.nav-links{display:flex;align-items:center;gap:.25rem;list-style:none}
+.nav-link{padding:.5rem .9rem;font-size:.84rem;font-weight:400;color:var(--ink-2);letter-spacing:.03em;border-radius:var(--r);transition:color .25s,background .25s}
+.nav-link:hover,.nav-link.active{color:var(--ink);background:var(--paper-2)}
+.nav-link.nav-cta{background:var(--ink);color:var(--paper)!important;padding:.5rem 1.25rem;font-weight:500;border-radius:var(--r);transition:background .25s,transform .2s}
+.nav-link.nav-cta:hover{background:var(--gold);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:4px;background:none;border:none}
+.hamburger span{width:22px;height:1.5px;background:var(--ink);display:block;transition:.3s var(--ease)}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* MOBILE NAV */
+.mobile-menu{position:fixed;inset:0;z-index:190;background:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
+.mobile-menu.open{opacity:1;pointer-events:all}
+.mobile-menu a{font-family:var(--serif);font-size:2.2rem;font-weight:600;color:var(--ink);letter-spacing:-.02em;transition:color .2s}
+.mobile-menu a:hover{color:var(--gold)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:8rem 2rem 5rem;background:var(--black)}
+.hero-canvas{position:absolute;inset:0;overflow:hidden}
+.hero-grain{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.04'/%3E%3C/svg%3E");opacity:.4}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(80px)}
+.hero-orb-1{width:600px;height:600px;top:-200px;right:-150px;background:radial-gradient(circle,rgba(200,146,26,.22) 0%,transparent 70%)}
+.hero-orb-2{width:400px;height:400px;bottom:-100px;left:-100px;background:radial-gradient(circle,rgba(200,146,26,.12) 0%,transparent 70%)}
+.hero-orb-3{width:200px;height:200px;top:40%;left:30%;background:radial-gradient(circle,rgba(200,146,26,.08) 0%,transparent 70%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px}
+
+.hero-inner{position:relative;z-index:1;max-width:900px;width:100%;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:.4rem 1rem .4rem .6rem;background:rgba(200,146,26,.12);border:1px solid rgba(200,146,26,.3);border-radius:100px;font-size:.78rem;color:rgba(255,255,255,.8);letter-spacing:.05em;margin-bottom:2rem;opacity:0;animation:fadeUp .6s .1s forwards}
+.badge-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(200,146,26,.5)}50%{box-shadow:0 0 0 6px rgba(200,146,26,0)}}
+.hero-title{font-family:var(--serif);font-size:clamp(3rem,7vw,5.5rem);line-height:1.05;letter-spacing:-.03em;color:var(--white);margin-bottom:1.75rem;opacity:0;animation:fadeUp .7s .25s forwards}
+.hero-title em{font-style:italic;color:var(--gold-2);display:block}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.55);font-weight:300;line-height:1.8;max-width:600px;margin:0 auto 2.5rem;opacity:0;animation:fadeUp .7s .4s forwards}
+.hero-actions{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:4rem;opacity:0;animation:fadeUp .7s .55s forwards}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:.8rem 1.75rem;border-radius:var(--r);font-size:.88rem;font-weight:500;letter-spacing:.03em;transition:all .3s var(--ease);white-space:nowrap}
+.btn-primary{background:var(--gold);color:var(--white);box-shadow:0 0 0 0 rgba(200,146,26,0)}
+.btn-primary:hover{background:var(--gold-2);transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,146,26,.35)}
+.btn-ghost{background:rgba(255,255,255,.08);color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.15)}
+.btn-ghost:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--ink);border:1.5px solid rgba(0,0,0,.2)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.btn-white{background:var(--white);color:var(--ink)}
+.btn-white:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.35)}
+.btn-outline-white:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
+.btn-full{width:100%;justify-content:center}
+
+.hero-stats{display:flex;align-items:center;justify-content:center;gap:0;opacity:0;animation:fadeUp .7s .7s forwards}
+.stat{text-align:center;padding:0 3rem}
+.stat-num{font-family:var(--serif);font-size:2.8rem;font-weight:800;color:var(--white);line-height:1;display:inline-block}
+.stat-suffix{font-size:1.5rem;color:var(--gold);font-weight:600}
+.stat-label{display:block;font-size:.75rem;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase;margin-top:.35rem}
+.stat-divider{width:1px;height:50px;background:rgba(255,255,255,.1)}
+.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.6rem;color:rgba(255,255,255,.3);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;opacity:0;animation:fadeIn 1s 1.2s forwards}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(255,255,255,.3),transparent);animation:scrollPulse 1.8s infinite}
+@keyframes scrollPulse{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ── TRUST BAR ── */
+.trust-bar{background:var(--paper-2);border-bottom:1px solid var(--paper-3);padding:1.25rem 2rem;overflow:hidden}
+.trust-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:2rem}
+.trust-label{font-size:.72rem;color:var(--ink-3);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;font-weight:500}
+.trust-track{overflow:hidden;flex:1}
+.trust-logos{display:flex;gap:2.5rem;animation:marquee 22s linear infinite;width:max-content}
+.trust-item{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--ink-3);white-space:nowrap;padding:.3rem .9rem;background:var(--white);border:1px solid var(--paper-3);border-radius:100px}
+.trust-item i{color:var(--gold);font-size:.9rem}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── SECTIONS ── */
+.section{padding:6.5rem 2rem}
+.container{max-width:1100px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:3.5rem}
+.section-tag{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:600;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.75rem}
+.section-tag::before,.section-tag::after{content:'';width:20px;height:1px;background:var(--gold)}
+.section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);line-height:1.12;letter-spacing:-.025em;color:var(--ink);margin-bottom:.75rem}
+.section-title em{font-style:italic;color:var(--gold)}
+.section-sub{font-size:1rem;color:var(--ink-3);font-weight:300;line-height:1.8;max-width:560px;margin:0 auto}
+
+/* ── ABOUT ── */
+.about{background:var(--paper)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-visual{position:relative}
+.about-card-main{background:var(--ink);border-radius:var(--rl);padding:2.5rem;position:relative;overflow:hidden}
+.about-card-main::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:rgba(200,146,26,.12)}
+.about-icon-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:2rem}
+.icon-block{aspect-ratio:1;border-radius:var(--rl);display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:transform .3s var(--ease)}
+.icon-block:hover{transform:scale(1.05) rotate(-4deg)}
+.bg-gold{background:var(--gold);color:var(--white)}
+.bg-dark{background:rgba(255,255,255,.06);color:rgba(255,255,255,.5)}
+.about-exp-badge{display:flex;flex-direction:column;align-items:flex-start;padding:1.25rem 1.5rem;background:var(--gold);border-radius:var(--r);color:var(--white)}
+.about-exp-badge strong{font-family:var(--serif);font-size:1.5rem;font-weight:800;line-height:1}
+.about-exp-badge span{font-size:.75rem;opacity:.85;letter-spacing:.05em;text-transform:uppercase}
+.about-card-accent{position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--white);border:1px solid var(--paper-3);border-radius:var(--rl);padding:1.5rem;max-width:220px;box-shadow:0 16px 40px rgba(0,0,0,.1)}
+.about-card-accent i{color:var(--gold);font-size:1.1rem;margin-bottom:.6rem;display:block}
+.about-card-accent p{font-family:var(--serif);font-size:.9rem;line-height:1.5;color:var(--ink);font-style:italic;margin-bottom:.5rem}
+.about-card-accent span{font-size:.7rem;color:var(--ink-3);letter-spacing:.04em}
+.about-text .section-tag{display:inline-flex}
+.about-lead{font-size:1.05rem;color:var(--ink-2);line-height:1.8;margin-bottom:1rem;font-weight:400}
+.about-text p{font-size:.92rem;color:var(--ink-3);line-height:1.8;margin-bottom:1.75rem;font-weight:300}
+.about-pillars{display:flex;flex-direction:column;gap:.9rem;margin-bottom:2rem}
+.pillar{display:flex;align-items:flex-start;gap:1rem;padding:.9rem 1rem;background:var(--paper-2);border-radius:var(--r);border-left:3px solid var(--gold);transition:transform .25s var(--ease)}
+.pillar:hover{transform:translateX(5px)}
+.pillar-icon{width:38px;height:38px;flex-shrink:0;background:var(--gold-light);border-radius:var(--r);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:.9rem}
+.pillar strong{display:block;font-size:.9rem;font-weight:600;color:var(--ink);margin-bottom:.2rem}
+.pillar span{font-size:.82rem;color:var(--ink-3);line-height:1.5}
+
+/* ── SERVICES ── */
+.services{background:var(--paper-2)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.service-card{background:var(--white);border:1px solid rgba(0,0,0,.07);border-radius:var(--rl);overflow:hidden;cursor:default;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.1);border-color:rgba(200,146,26,.25)}
+.service-card-inner{padding:2rem}
+.service-icon-wrap{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
+.service-icon{width:48px;height:48px;background:var(--gold-light);border-radius:var(--r);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.1rem;transition:background .3s,color .3s}
+.service-card:hover .service-icon{background:var(--gold);color:var(--white)}
+.service-num{font-family:var(--serif);font-size:3rem;font-weight:800;color:rgba(0,0,0,.04);line-height:1;transition:color .3s}
+.service-card:hover .service-num{color:rgba(200,146,26,.08)}
+.service-card h3{font-family:var(--serif);font-size:1.08rem;font-weight:600;color:var(--ink);line-height:1.35;margin-bottom:.7rem}
+.service-card p{font-size:.86rem;color:var(--ink-3);line-height:1.75;font-weight:300;margin-bottom:1.25rem}
+.service-features{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.5rem}
+.service-features li{display:flex;align-items:center;gap:.6rem;font-size:.8rem;color:var(--ink-3)}
+.service-features li i{color:var(--gold);font-size:.7rem;flex-shrink:0}
+.service-link{display:inline-flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:500;color:var(--gold);border-bottom:1px solid transparent;transition:border-color .2s,gap .2s;padding-bottom:2px}
+.service-link:hover{border-color:var(--gold);gap:.75rem}
+
+/* ── CTA STRIP ── */
+.cta-strip{background:var(--gold);padding:3.5rem 2rem}
+.cta-strip-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.cta-strip-text h3{font-family:var(--serif);font-size:1.7rem;color:var(--white);margin-bottom:.35rem;font-weight:700}
+.cta-strip-text p{font-size:.92rem;color:rgba(255,255,255,.75);font-weight:300}
+.cta-strip-actions{display:flex;gap:1rem;flex-wrap:wrap}
+
+/* ── PORTFOLIO ── */
+.portfolio{background:var(--paper)}
+.pf-filter{display:flex;align-items:center;justify-content:center;gap:.5rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.filter-btn{padding:.45rem 1.1rem;border-radius:100px;font-size:.8rem;font-weight:500;color:var(--ink-3);background:var(--paper-2);border:1px solid var(--paper-3);cursor:pointer;transition:all .25s var(--ease)}
+.filter-btn:hover{color:var(--ink);border-color:rgba(0,0,0,.2)}
+.filter-btn.active{background:var(--ink);color:var(--white);border-color:var(--ink)}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.pf-item{border-radius:var(--rl);overflow:hidden;cursor:pointer;transition:transform .35s var(--ease),box-shadow .35s var(--ease),opacity .35s,filter .35s}
+.pf-item:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.14)}
+.pf-item.hidden{opacity:0;transform:scale(0.92);filter:blur(4px);pointer-events:none;position:absolute;visibility:hidden}
+.pf-visual{position:relative;aspect-ratio:4/3;overflow:hidden}
+.pf-visual-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s var(--ease)}
+.pf-item:hover .pf-visual-bg{transform:scale(1.06)}
+.pf1-bg{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%)}
+.pf2-bg{background:linear-gradient(135deg,#0d2137 0%,#1b4965 50%,#bee9e8 100%)}
+.pf3-bg{background:linear-gradient(135deg,#0d0d0d 0%,#1a1a1a 40%,#c8921a 100%)}
+.pf4-bg{background:linear-gradient(135deg,#2d1b69 0%,#6a0572 50%,#c9184a 100%)}
+.pf5-bg{background:linear-gradient(135deg,#1c1c1c 0%,#333333 40%,#4a4a4a 100%)}
+.pf6-bg{background:linear-gradient(135deg,#0a3622 0%,#146c43 50%,#25a244 100%)}
+.pf-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.2) 55%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;opacity:0;transition:opacity .35s var(--ease)}
+.pf-item:hover .pf-overlay{opacity:1}
+.pf-overlay-tag{font-size:.68rem;color:var(--gold-2);letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:.4rem}
+.pf-overlay h4{font-family:var(--serif);font-size:1.05rem;color:var(--white);font-weight:600;margin-bottom:.5rem}
+.pf-overlay p{font-size:.78rem;color:rgba(255,255,255,.65);line-height:1.6;margin-bottom:.75rem;font-weight:300}
+.pf-metrics{display:flex;gap:1rem}
+.pf-metrics span{font-size:.75rem;color:rgba(255,255,255,.6)}
+.pf-metrics strong{color:var(--gold-2);font-weight:600}
+.pf-default-icon{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;color:rgba(255,255,255,.2);font-size:2.5rem;transition:opacity .3s var(--ease)}
+.pf-default-icon span{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-weight:300;font-family:var(--sans)}
+.pf-item:hover .pf-default-icon{opacity:0}
+.pf-meta{padding:1.1rem 1.25rem;background:var(--white);border:1px solid rgba(0,0,0,.07);border-top:none}
+.pf-cat{font-size:.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:.3rem}
+.pf-title{font-size:.9rem;font-weight:500;color:var(--ink)}
+
+/* ── TESTIMONIALS ── */
+.testimonials{background:var(--ink);overflow:hidden}
+.testimonials .section-tag{color:var(--gold-2)}
+.testimonials .section-tag::before,.testimonials .section-tag::after{background:var(--gold-2)}
+.testimonials .section-title{color:var(--white)}
+.testimonials .section-title em{color:var(--gold-2)}
+.t-track{position:relative;overflow:hidden;margin-bottom:2rem}
+.t-slider{display:flex;transition:transform .5s var(--ease)}
+.t-card{flex:0 0 calc(33.333% - .83rem);margin:0 .42rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--rl);padding:2rem;cursor:default;transition:border-color .3s,background .3s}
+.t-card.active-card{border-color:rgba(200,146,26,.35);background:rgba(200,146,26,.06)}
+.t-rating{display:flex;gap:3px;margin-bottom:1.25rem;color:var(--gold)}
+.t-rating i{font-size:.75rem}
+.t-quote{font-family:var(--serif);font-size:.95rem;color:rgba(255,255,255,.75);line-height:1.75;font-style:italic;margin-bottom:1.5rem}
+.t-author{display:flex;align-items:center;gap:.9rem}
+.t-avatar{width:42px;height:42px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:.9rem;color:var(--white);font-weight:700;flex-shrink:0}
+.t-name{font-size:.88rem;font-weight:500;color:var(--white);display:block;margin-bottom:.15rem}
+.t-role{font-size:.75rem;color:rgba(255,255,255,.4)}
+.t-controls{display:flex;align-items:center;justify-content:center;gap:1.25rem}
+.t-btn{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6);font-size:.85rem;display:flex;align-items:center;justify-content:center;transition:all .25s}
+.t-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--white)}
+.t-dots{display:flex;gap:.5rem}
+.t-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.2);transition:all .3s;cursor:pointer}
+.t-dot.active{background:var(--gold);width:24px;border-radius:4px}
+
+/* ── CONTACT ── */
+.contact{background:var(--paper-2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start}
+.contact-info .section-tag{display:inline-flex}
+.contact-info .section-title{text-align:left}
+.contact-info>p{font-size:.92rem;color:var(--ink-3);line-height:1.8;font-weight:300;margin-bottom:2rem}
+.contact-details{display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem}
+.contact-detail{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:var(--white);border:1px solid rgba(0,0,0,.07);border-radius:var(--r);text-decoration:none;transition:border-color .25s,transform .25s}
+.contact-detail:hover{border-color:var(--gold);transform:translateX(4px)}
+.contact-detail-icon{width:40px;height:40px;flex-shrink:0;background:var(--gold-light);border-radius:var(--r);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:.9rem}
+.contact-detail strong{display:block;font-size:.8rem;font-weight:600;color:var(--ink);margin-bottom:.15rem}
+.contact-detail span{font-size:.85rem;color:var(--ink-3)}
+.socials-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.socials-label{font-size:.78rem;color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase}
+.social-links{display:flex;gap:.5rem}
+.social-link{width:36px;height:36px;border-radius:var(--r);background:var(--white);border:1px solid rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center;color:var(--ink-3);font-size:.85rem;transition:all .25s}
+.social-link:hover{background:var(--gold);border-color:var(--gold);color:var(--white);transform:translateY(-2px)}
+.social-link.whatsapp:hover{background:#25d366;border-color:#25d366}
+.contact-form-wrap{background:var(--white);border:1px solid rgba(0,0,0,.07);border-radius:var(--rl);padding:2.5rem;box-shadow:0 8px 32px rgba(0,0,0,.06)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{margin-bottom:1rem}
+.form-group label{display:block;font-size:.75rem;font-weight:600;color:var(--ink-2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.5rem}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:.8rem 1rem;background:var(--paper);border:1.5px solid var(--paper-3);border-radius:var(--r);color:var(--ink);font-family:var(--sans);font-size:.9rem;transition:border-color .25s,background .25s;outline:none;appearance:none}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--gold);background:var(--white)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(0,0,0,.25)}
+.form-group textarea{min-height:110px;resize:vertical}
+.form-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;cursor:pointer}
+.btn-send{width:100%;padding:1rem;background:var(--ink);color:var(--white);border-radius:var(--r);font-family:var(--sans);font-size:.9rem;font-weight:500;letter-spacing:.04em;display:flex;align-items:center;justify-content:center;gap:.6rem;margin-top:1.25rem;transition:background .3s,transform .2s,box-shadow .3s;cursor:pointer}
+.btn-send:hover{background:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,146,26,.3)}
+.form-notice{margin-top:.9rem;padding:.75rem 1rem;border-radius:var(--r);font-size:.85rem;display:none}
+.form-notice.success{display:block;background:#d1fae5;color:#065f46;border:1px solid #6ee7b7}
+.form-notice.error{display:block;background:#fee2e2;color:#991b1b;border:1px solid #fca5a5}
+
+/* ── FOOTER ── */
+.footer{background:var(--black)}
+.footer-top{padding:5rem 2rem}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:3rem;max-width:1100px;margin:0 auto}
+.footer-brand p{font-size:.85rem;color:rgba(255,255,255,.35);line-height:1.8;margin:.9rem 0 1.25rem;font-weight:300}
+.footer-brand .nav-logo{color:rgba(255,255,255,.8)}
+.footer-brand .logo-text em{color:var(--gold)}
+.footer-col h4{font-size:.78rem;font-weight:600;color:rgba(255,255,255,.55);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.1rem}
+.footer-col ul{display:flex;flex-direction:column;gap:.55rem}
+.footer-col ul li a,.footer-col ul li span{font-size:.84rem;color:rgba(255,255,255,.3);transition:color .2s;display:flex;align-items:center;gap:.5rem}
+.footer-col ul li a:hover{color:var(--gold)}
+.footer-col ul li i{width:14px;color:var(--gold);opacity:.7;font-size:.8rem}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding:1.5rem 2rem}
+.footer-bottom .container{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.footer-bottom p{font-size:.78rem;color:rgba(255,255,255,.2)}
+
+/* ── FLOATING ELEMENTS ── */
+.whatsapp-float{position:fixed;bottom:2rem;right:2rem;z-index:150;width:54px;height:54px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1.4rem;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .3s var(--ease),box-shadow .3s;animation:waBounce 3s infinite 2s}
+.whatsapp-float:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(37,211,102,.5)}
+@keyframes waBounce{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.scroll-top{position:fixed;bottom:2rem;right:6.5rem;z-index:150;width:44px;height:44px;background:var(--white);border:1.5px solid rgba(0,0,0,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--ink);font-size:.85rem;box-shadow:0 4px 16px rgba(0,0,0,.1);opacity:0;transform:translateY(10px);pointer-events:none;transition:all .3s var(--ease)}
+.scroll-top.visible{opacity:1;transform:translateY(0);pointer-events:all}
+.scroll-top:hover{background:var(--gold);border-color:var(--gold);color:var(--white);transform:translateY(-2px)}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-30px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+.reveal-left.in{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(30px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+.reveal-right.in{opacity:1;transform:translateX(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}.d6{transition-delay:.6s}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){.services-grid{grid-template-columns:repeat(2,1fr)}.portfolio-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr;gap:2.5rem}}
+@media(max-width:860px){.about-grid{grid-template-columns:1fr}.about-visual{display:none}.contact-grid{grid-template-columns:1fr}.nav-links{display:none}.hamburger{display:flex}.hero-stats{flex-direction:column;gap:1.5rem}.stat-divider{width:60px;height:1px}}
+@media(max-width:600px){.section{padding:4.5rem 1.25rem}.services-grid{grid-template-columns:1fr}.portfolio-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.t-card{flex:0 0 calc(100% - .84rem)}.footer-grid{grid-template-columns:1fr}.cta-strip-inner{flex-direction:column}.navbar{padding:.9rem 1.25rem}.navbar.scrolled{padding:.7rem 1.25rem}}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="#home" class="nav-logo">
+    <div class="logo-mark">C</div>
+    <span class="logo-text">Charmu<em>Prime</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home" class="nav-link active">Home</a></li>
+    <li><a href="#about" class="nav-link">About</a></li>
+    <li><a href="#services" class="nav-link">Services</a></li>
+    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+    <li><a href="#contact" class="nav-link nav-cta">Get Started</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" onclick="closeMenu()">Home</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#portfolio" onclick="closeMenu()">Portfolio</a>
+  <a href="#testimonials" onclick="closeMenu()">Testimonials</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-canvas">
+    <div class="hero-grain"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Kenya's Premier IT Partner · Nyeri Town, Kenya
+    </div>
+    <h1 class="hero-title">We Engineer<br/><em>Digital Excellence</em><br/>For Your Business</h1>
+    <p class="hero-sub">From hardware supply to full-scale digital transformation — Charmu Prime Ventures is the strategic partner that ambitious businesses trust to compete, grow, and lead.</p>
+    <div class="hero-actions">
+      <a href="#services" class="btn btn-primary"><i class="fas fa-compass"></i> Explore Our Services</a>
+      <a href="#contact" class="btn btn-ghost"><i class="far fa-calendar"></i> Book Free Consultation</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num" data-target="120">0</span><span class="stat-suffix">+</span>
+        <span class="stat-label">Projects Delivered</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num" data-target="85">0</span><span class="stat-suffix">+</span>
+        <span class="stat-label">Satisfied Clients</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num" data-target="5">0</span><span class="stat-suffix">+</span>
+        <span class="stat-label">Years of Excellence</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num" data-target="6">0</span>
+        <span class="stat-label">Core Specializations</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <span class="trust-label">Trusted By</span>
+    <div class="trust-track">
+      <div class="trust-logos">
+        <div class="trust-item"><i class="fas fa-building"></i> SMEs &amp; Startups</div>
+        <div class="trust-item"><i class="fas fa-hospital"></i> Healthcare Orgs</div>
+        <div class="trust-item"><i class="fas fa-graduation-cap"></i> Educational Institutions</div>
+        <div class="trust-item"><i class="fas fa-briefcase"></i> Corporate Enterprises</div>
+        <div class="trust-item"><i class="fas fa-store"></i> Retail Businesses</div>
+        <div class="trust-item"><i class="fas fa-hand-holding-heart"></i> NGOs &amp; Non-Profits</div>
+        <!-- Duplicate for seamless loop -->
+        <div class="trust-item"><i class="fas fa-building"></i> SMEs &amp; Startups</div>
+        <div class="trust-item"><i class="fas fa-hospital"></i> Healthcare Orgs</div>
+        <div class="trust-item"><i class="fas fa-graduation-cap"></i> Educational Institutions</div>
+        <div class="trust-item"><i class="fas fa-briefcase"></i> Corporate Enterprises</div>
+        <div class="trust-item"><i class="fas fa-store"></i> Retail Businesses</div>
+        <div class="trust-item"><i class="fas fa-hand-holding-heart"></i> NGOs &amp; Non-Profits</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal-left">
+        <div class="about-card-main">
+          <div class="about-icon-grid">
+            <div class="icon-block bg-gold"><i class="fas fa-microchip"></i></div>
+            <div class="icon-block bg-dark"><i class="fas fa-chart-line"></i></div>
+            <div class="icon-block bg-dark"><i class="fas fa-code"></i></div>
+            <div class="icon-block bg-gold"><i class="fas fa-shield-halved"></i></div>
+          </div>
+          <div class="about-exp-badge">
+            <strong>Est. 2019</strong>
+            <span>5+ Years of Excellence</span>
+          </div>
+        </div>
+        <div class="about-card-accent">
+          <i class="fas fa-quote-left"></i>
+          <p>"Technology is only as powerful as the strategy behind it."</p>
+          <span>— Charmu Prime Philosophy</span>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="section-tag reveal">Who We Are</div>
+        <h2 class="section-title reveal d1" style="text-align:left">Built on Expertise.<br/><em>Driven by Results.</em></h2>
+        <p class="about-lead reveal d2">Charmu Prime Ventures is a Kenyan-based IT and digital solutions company that believes every business — regardless of size — deserves enterprise-grade technology and strategy.</p>
+        <p class="reveal d3">We work with founders, executives, and decision-makers who understand that digital capability is no longer optional. Our team brings together seasoned IT professionals, data analysts, developers, and strategists to deliver solutions that actually move the needle.</p>
+        <div class="about-pillars">
+          <div class="pillar reveal d2"><div class="pillar-icon"><i class="fas fa-bullseye"></i></div><div><strong>Precision</strong><span>Every solution is tailored — no one-size-fits-all approaches here.</span></div></div>
+          <div class="pillar reveal d3"><div class="pillar-icon"><i class="fas fa-handshake"></i></div><div><strong>Partnership</strong><span>We invest in your success, not just your project.</span></div></div>
+          <div class="pillar reveal d4"><div class="pillar-icon"><i class="fas fa-rocket"></i></div><div><strong>Performance</strong><span>Measurable outcomes, delivered on time and on budget.</span></div></div>
+        </div>
+        <div class="reveal d5"><a href="#contact" class="btn btn-primary">Work With Us <i class="fas fa-arrow-right"></i></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services section" id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag reveal">What We Do</div>
+      <h2 class="section-title reveal d1">Six Ways We <em>Transform</em><br/>Your Business</h2>
+      <p class="section-sub reveal d2">Comprehensive digital and IT services engineered to give your business a competitive edge — from hardware to high strategy.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal d1">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap"><div class="service-icon"><i class="fas fa-laptop"></i></div><div class="service-num">01</div></div>
+          <h3>Computer &amp; Laptop Consultancy &amp; Supply</h3>
+          <p>We source, configure, and deliver the right computing hardware for your specific environment — from procurement advice to bulk corporate supply.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Hardware needs assessment</li>
+            <li><i class="fas fa-check"></i> Bulk &amp; corporate procurement</li>
+            <li><i class="fas fa-check"></i> Pre-configuration &amp; setup</li>
+            <li><i class="fas fa-check"></i> Warranty &amp; after-sales support</li>
+          </ul>
+          <a href="#contact" class="service-link">Inquire Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="service-card reveal d2">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap"><div class="service-icon"><i class="fas fa-server"></i></div><div class="service-num">02</div></div>
+          <h3>Full-Scale IT Consultancy</h3>
+          <p>Strategic technology advisory for organizations seeking to build, upgrade, or secure their IT infrastructure. We assess, design, and execute.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> IT infrastructure audit</li>
+            <li><i class="fas fa-check"></i> Network design &amp; implementation</li>
+            <li><i class="fas fa-check"></i> Cloud migration strategy</li>
+            <li><i class="fas fa-check"></i> Cybersecurity &amp; compliance</li>
+          </ul>
+          <a href="#contact" class="service-link">Inquire Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="service-card reveal d3">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap"><div class="service-icon"><i class="fas fa-chart-bar"></i></div><div class="service-num">03</div></div>
+          <h3>Data Analytics</h3>
+          <p>Your data is one of your most valuable assets. We turn raw numbers into intelligence — dashboards, reports, and predictive models for smarter decisions.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Business intelligence dashboards</li>
+            <li><i class="fas fa-check"></i> Sales &amp; performance reporting</li>
+            <li><i class="fas fa-check"></i> Data cleaning &amp; visualization</li>
+            <li><i class="fas fa-check"></i> Predictive analytics &amp; modeling</li>
+          </ul>
+          <a href="#contact" class="service-link">Inquire Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="service-card reveal d1">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap"><div class="service-icon"><i class="fas fa-globe"></i></div><div class="service-num">04</div></div>
+          <h3>Website Development &amp; Maintenance</h3>
+          <p>Websites that don't just look good — they work as your hardest-working salesperson. Fast, SEO-optimized, and mobile-first, with ongoing support.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Custom website design &amp; build</li>
+            <li><i class="fas fa-check"></i> E-commerce solutions</li>
+            <li><i class="fas fa-check"></i> SEO &amp; performance optimization</li>
+            <li><i class="fas fa-check"></i> Monthly maintenance retainers</li>
+          </ul>
+          <a href="#contact" class="service-link">Inquire Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="service-card reveal d2">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap"><div class="service-icon"><i class="fas fa-share-nodes"></i></div><div class="service-num">05</div></div>
+          <h3>Social Media Management</h3>
+          <p>We manage your brand's digital presence across platforms — content strategy, visual design, targeted campaigns, and communities that convert.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Content strategy &amp; calendar</li>
+            <li><i class="fas fa-check"></i> Graphic design &amp; copywriting</li>
+            <li><i class="fas fa-check"></i> Paid social advertising</li>
+            <li><i class="fas fa-check"></i> Analytics &amp; monthly reporting</li>
+          </ul>
+          <a href="#contact" class="service-link">Inquire Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="service-card reveal d3">
+        <div class="service-card-inner">
+          <div class="service-icon-wrap"><div class="service-icon"><i class="fas fa-pen-nib"></i></div><div class="service-num">06</div></div>
+          <h3>Professional Writing Services</h3>
+          <p>Words that command attention and inspire action. Proposals, technical documentation, website copy, reports, and thought-leadership content.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Business proposals &amp; tenders</li>
+            <li><i class="fas fa-check"></i> Technical &amp; policy documentation</li>
+            <li><i class="fas fa-check"></i> Website &amp; marketing copy</li>
+            <li><i class="fas fa-check"></i> Reports &amp; whitepapers</li>
+          </ul>
+          <a href="#contact" class="service-link">Inquire Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section class="cta-strip">
+  <div class="cta-strip-inner">
+    <div class="cta-strip-text">
+      <h3>Ready to elevate your business with technology?</h3>
+      <p>Let's have a conversation about what's possible for you.</p>
+    </div>
+    <div class="cta-strip-actions">
+      <a href="tel:+254728427203" class="btn btn-white"><i class="fas fa-phone"></i> Call Us Now</a>
+      <a href="#contact" class="btn btn-outline-white">Send a Message</a>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio section" id="portfolio">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag reveal">Our Work</div>
+      <h2 class="section-title reveal d1">Results That <em>Speak</em><br/>for Themselves</h2>
+      <p class="section-sub reveal d2">A selection of projects where we've driven measurable impact for our clients across sectors.</p>
+    </div>
+    <div class="pf-filter reveal d3" id="pfFilter">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="web">Web Dev</button>
+      <button class="filter-btn" data-filter="it">IT &amp; Infrastructure</button>
+      <button class="filter-btn" data-filter="data">Data &amp; Analytics</button>
+      <button class="filter-btn" data-filter="social">Social Media</button>
+    </div>
+    <div class="portfolio-grid" id="pfGrid">
+      <div class="pf-item" data-cat="web">
+        <div class="pf-visual">
+          <div class="pf-visual-bg pf1-bg"></div>
+          <div class="pf-default-icon"><i class="fas fa-shopping-cart"></i><span>E-Commerce</span></div>
+          <div class="pf-overlay">
+            <span class="pf-overlay-tag">E-Commerce &amp; Web Dev</span>
+            <h4>Retail Chain Online Store</h4>
+            <p>Built a full-featured WooCommerce store for a Nairobi retail chain. 340% increase in online sales in 6 months.</p>
+            <div class="pf-metrics"><span><strong>+340%</strong> Sales</span><span><strong>4.8s→1.2s</strong> Load Time</span></div>
+          </div>
+        </div>
+        <div class="pf-meta"><div class="pf-cat">Web Development</div><div class="pf-title">Retail E-Commerce Platform</div></div>
+      </div>
+      <div class="pf-item" data-cat="it">
+        <div class="pf-visual">
+          <div class="pf-visual-bg pf2-bg"></div>
+          <div class="pf-default-icon"><i class="fas fa-network-wired"></i><span>Infrastructure</span></div>
+          <div class="pf-overlay">
+            <span class="pf-overlay-tag">IT Infrastructure</span>
+            <h4>Healthcare Network Overhaul</h4>
+            <p>Redesigned network infrastructure for a 3-branch clinic. Zero downtime migration, 60% faster connectivity.</p>
+            <div class="pf-metrics"><span><strong>0</strong> Downtime</span><span><strong>60%</strong> Speed Gain</span></div>
+          </div>
+        </div>
+        <div class="pf-meta"><div class="pf-cat">IT Consultancy</div><div class="pf-title">Multi-Branch Clinic Network</div></div>
+      </div>
+      <div class="pf-item" data-cat="data">
+        <div class="pf-visual">
+          <div class="pf-visual-bg pf3-bg"></div>
+          <div class="pf-default-icon"><i class="fas fa-chart-pie"></i><span>Analytics</span></div>
+          <div class="pf-overlay">
+            <span class="pf-overlay-tag">Data Analytics</span>
+            <h4>Sales Intelligence Dashboard</h4>
+            <p>Built a real-time Power BI dashboard for an FMCG distributor. Decision time reduced from days to hours.</p>
+            <div class="pf-metrics"><span><strong>12→2</strong> Days to Insights</span><span><strong>22%</strong> Revenue Uplift</span></div>
+          </div>
+        </div>
+        <div class="pf-meta"><div class="pf-cat">Data Analytics</div><div class="pf-title">FMCG Sales Dashboard</div></div>
+      </div>
+      <div class="pf-item" data-cat="social">
+        <div class="pf-visual">
+          <div class="pf-visual-bg pf4-bg"></div>
+          <div class="pf-default-icon"><i class="fas fa-bullhorn"></i><span>Social Media</span></div>
+          <div class="pf-overlay">
+            <span class="pf-overlay-tag">Social Media Growth</span>
+            <h4>Restaurant Brand Growth</h4>
+            <p>Grew a Nairobi restaurant's Instagram from 200 to 8,400 followers in 4 months. Bookings up 85%.</p>
+            <div class="pf-metrics"><span><strong>200→8,400</strong> Followers</span><span><strong>+85%</strong> Bookings</span></div>
+          </div>
+        </div>
+        <div class="pf-meta"><div class="pf-cat">Social Media</div><div class="pf-title">Restaurant Digital Growth</div></div>
+      </div>
+      <div class="pf-item" data-cat="web">
+        <div class="pf-visual">
+          <div class="pf-visual-bg pf5-bg"></div>
+          <div class="pf-default-icon"><i class="fas fa-scale-balanced"></i><span>Legal Web</span></div>
+          <div class="pf-overlay">
+            <span class="pf-overlay-tag">Web Dev &amp; SEO</span>
+            <h4>Professional Services Firm</h4>
+            <p>End-to-end website build with SEO strategy for a Nairobi law firm. Organic traffic up 210% in 3 months.</p>
+            <div class="pf-metrics"><span><strong>+210%</strong> Organic Traffic</span><span><strong>Top 3</strong> Google Rankings</span></div>
+          </div>
+        </div>
+        <div class="pf-meta"><div class="pf-cat">Web Development</div><div class="pf-title">Law Firm Digital Presence</div></div>
+      </div>
+      <div class="pf-item" data-cat="it">
+        <div class="pf-visual">
+          <div class="pf-visual-bg pf6-bg"></div>
+          <div class="pf-default-icon"><i class="fas fa-desktop"></i><span>Hardware</span></div>
+          <div class="pf-overlay">
+            <span class="pf-overlay-tag">Hardware &amp; IT</span>
+            <h4>School Computer Lab Setup</h4>
+            <p>Procured, configured, and deployed 45 workstations for a secondary school. Full training delivered.</p>
+            <div class="pf-metrics"><span><strong>45</strong> Workstations</span><span><strong>100%</strong> Uptime</span></div>
+          </div>
+        </div>
+        <div class="pf-meta"><div class="pf-cat">Hardware Supply &amp; IT</div><div class="pf-title">School Computer Lab</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials section" id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag reveal">Client Stories</div>
+      <h2 class="section-title reveal d1">Trusted by Leaders<br/><em>Across Industries</em></h2>
+    </div>
+    <div class="t-track reveal d2">
+      <div class="t-slider" id="tSlider">
+        <div class="t-card active-card">
+          <div class="t-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="t-quote">"Charmu Prime overhauled our entire IT infrastructure in under 3 weeks with zero disruption to our operations. Their team is sharp, communicates clearly, and actually delivers. We've recommended them to four other clinics already."</p>
+          <div class="t-author"><div class="t-avatar">DM</div><div><span class="t-name">Dr. Mercy Wambua</span><span class="t-role">Medical Director, Lifeline Healthcare Group</span></div></div>
+        </div>
+        <div class="t-card">
+          <div class="t-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="t-quote">"The data dashboard they built for us changed how we run our business. I used to spend hours compiling weekly reports. Now it's all live, visual, and actionable. Our regional managers make better decisions faster."</p>
+          <div class="t-author"><div class="t-avatar">JO</div><div><span class="t-name">James Ochieng</span><span class="t-role">CEO, AfriDistrib Limited</span></div></div>
+        </div>
+        <div class="t-card">
+          <div class="t-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="t-quote">"We had an outdated website and almost no social media presence. Within two months of working with Charmu Prime, we were ranking on Google and getting inquiries through Instagram daily. Incredible team."</p>
+          <div class="t-author"><div class="t-avatar">FA</div><div><span class="t-name">Fatuma Abdi</span><span class="t-role">Founder, Savanna Eats Restaurant Group</span></div></div>
+        </div>
+        <div class="t-card">
+          <div class="t-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="t-quote">"The proposal they wrote for our NGO grant application was exceptionally professional. We won the grant on our first attempt. Their writing team understands both technical and persuasive communication at a high level."</p>
+          <div class="t-author"><div class="t-avatar">PK</div><div><span class="t-name">Patrick Kimani</span><span class="t-role">Executive Director, Kijani Foundation</span></div></div>
+        </div>
+        <div class="t-card">
+          <div class="t-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="t-quote">"Charmu Prime supplied and configured 30 laptops for our new office. The pricing was competitive, delivery was on schedule, and every machine was set up exactly to spec. Zero issues. Now our go-to IT partner."</p>
+          <div class="t-author"><div class="t-avatar">GN</div><div><span class="t-name">Grace Njoroge</span><span class="t-role">Operations Manager, BrightPath Solutions</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="t-controls reveal d3">
+      <button class="t-btn" id="tPrev"><i class="fas fa-arrow-left"></i></button>
+      <div class="t-dots" id="tDots"></div>
+      <button class="t-btn" id="tNext"><i class="fas fa-arrow-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-tag reveal">Get In Touch</div>
+        <h2 class="section-title reveal d1">Let's Build Something<br/><em>Exceptional</em> Together</h2>
+        <p class="reveal d2">Whether you're starting from scratch or scaling up, our team is ready to listen, advise, and deliver. Reach out — the first consultation is on us.</p>
+        <div class="contact-details">
+          <a href="tel:+254728427203" class="contact-detail reveal d2">
+            <div class="contact-detail-icon"><i class="fas fa-phone"></i></div>
+            <div><strong>Call Us</strong><span>+254 728 427 203</span></div>
+          </a>
+          <a href="tel:+254716068505" class="contact-detail reveal d3">
+            <div class="contact-detail-icon"><i class="fas fa-phone"></i></div>
+            <div><strong>Alternative Line</strong><span>+254 716 068 505</span></div>
+          </a>
+          <a href="mailto:cprimeventures@gmail.com" class="contact-detail reveal d3">
+            <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
+            <div><strong>Email Us</strong><span>cprimeventures@gmail.com</span></div>
+          </a>
+          <div class="contact-detail reveal d4">
+            <div class="contact-detail-icon"><i class="fas fa-location-dot"></i></div>
+            <div><strong>Find Us</strong><span>Nyeri Karatina Rd, Gatitu, Nyeri Kenya</span></div>
+          </div>
+          <div class="contact-detail reveal d5">
+            <div class="contact-detail-icon"><i class="fas fa-clock"></i></div>
+            <div><strong>Working Hours</strong><span>Mon – Fri: 8am – 6pm EAT</span></div>
+          </div>
+        </div>
+        <div class="socials-row reveal d5">
+          <span class="socials-label">Follow Us</span>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link" aria-label="X/Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/254728427203" class="social-link whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap reveal-right">
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group"><label>First Name *</label><input type="text" name="first_name" placeholder="John" required/></div>
+            <div class="form-group"><label>Last Name *</label><input type="text" name="last_name" placeholder="Doe" required/></div>
+          </div>
+          <div class="form-group"><label>Email Address *</label><input type="email" name="email" placeholder="john@company.com" required/></div>
+          <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" placeholder="+254 700 000 000"/></div>
+          <div class="form-group">
+            <label>Service of Interest *</label>
+            <select name="service" required>
+              <option value="" disabled selected>Select a service...</option>
+              <option>Computer &amp; Laptop Supply</option>
+              <option>IT Consultancy</option>
+              <option>Data Analytics</option>
+              <option>Website Development</option>
+              <option>Social Media Management</option>
+              <option>Professional Writing</option>
+              <option>Other / General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Your Message *</label><textarea name="message" placeholder="Tell us about your project, goals, or challenge..." required></textarea></div>
+          <!-- Formspree honeypot spam filter -->
+          <input type="text" name="_gotcha" style="display:none"/>
+          <button type="submit" class="btn-send" id="submitBtn">
+            <span>Send Message</span><i class="fas fa-paper-plane"></i>
+          </button>
+          <div class="form-notice" id="formNotice"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="nav-logo"><div class="logo-mark">C</div><span class="logo-text">Charmu<em>Prime</em></span></a>
+        <p>Engineering digital excellence for businesses across Kenya and beyond. Your trusted partner in technology, strategy, and growth.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/254728427203" class="social-link whatsapp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Computer &amp; Laptop Supply</a></li>
+          <li><a href="#services">IT Consultancy</a></li>
+          <li><a href="#services">Data Analytics</a></li>
+          <li><a href="#services">Web Development</a></li>
+          <li><a href="#services">Social Media Management</a></li>
+          <li><a href="#services">Professional Writing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="footer-contact">
+          <li><a href="tel:+254728427203"><i class="fas fa-phone"></i>+254 728 427 203</a></li>
+          <li><a href="tel:+254716068505"><i class="fas fa-phone"></i>+254 716 068 505</a></li>
+          <li><a href="mailto:cprimeventures@gmail.com"><i class="fas fa-envelope"></i>cprimeventures@gmail.com</a></li>
+          <li><span><i class="fas fa-location-dot"></i>Nyeri Karatina Rd, Gatitu</span></li>
+          <li><span><i class="fas fa-map-marker-alt"></i>P.O Box 1093-10100, Nyeri</span></li>
+          <li><span><i class="fas fa-clock"></i>Mon–Fri: 8am–6pm EAT</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>© 2025 Charmu Prime Ventures. All rights reserved. | Crafted with precision in Nyeri 🇰🇪</p>
+      <p style="font-size:.72rem;color:rgba(255,255,255,.15)">IT &amp; Digital Solutions · Nyeri, Kenya</p>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING -->
+<a href="https://wa.me/254728427203?text=Hello%20Charmu%20Prime%20Ventures%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+<button class="scroll-top" id="scrollTop" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+// ── NAV SCROLL & HAMBURGER
+const navbar = document.getElementById('navbar');
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const navLinks = document.querySelectorAll('.nav-link');
+const scrollTopBtn = document.getElementById('scrollTop');
+
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+  scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+  // Active nav link
+  const sections = ['home','about','services','portfolio','testimonials','contact'];
+  let current = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 120) current = id;
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+function closeMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// ── COUNTER ANIMATION
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  let start = 0;
+  const duration = 1800;
+  const step = target / (duration / 16);
+  const timer = setInterval(() => {
+    start = Math.min(start + step, target);
+    el.textContent = Math.floor(start);
+    if (start >= target) clearInterval(timer);
+  }, 16);
+}
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateCounter(e.target);
+      counterObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat-num').forEach(el => counterObserver.observe(el));
+
+// ── SCROLL REVEAL
+const reveals = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => revealObs.observe(el));
+
+// ── PORTFOLIO FILTER
+const filterBtns = document.querySelectorAll('.filter-btn');
+const pfItems = document.querySelectorAll('.pf-item');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    pfItems.forEach(item => {
+      const match = filter === 'all' || item.dataset.cat === filter;
+      if (match) {
+        item.classList.remove('hidden');
+        item.style.position = '';
+        item.style.visibility = '';
+      } else {
+        item.classList.add('hidden');
+        setTimeout(() => {
+          if (item.classList.contains('hidden')) {
+            item.style.position = 'absolute';
+            item.style.visibility = 'hidden';
+          }
+        }, 350);
+      }
+    });
+  });
+});
+
+// ── TESTIMONIAL SLIDER
+const slider = document.getElementById('tSlider');
+const cards = slider.querySelectorAll('.t-card');
+const dotsContainer = document.getElementById('tDots');
+const total = cards.length;
+let current = 0;
+let visibleCount = window.innerWidth <= 600 ? 1 : 3;
+let maxIndex = Math.max(0, total - visibleCount);
+
+// Build dots
+cards.forEach((_, i) => {
+  if (i <= maxIndex) {
+    const dot = document.createElement('button');
+    dot.className = 't-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  }
+});
+
+function getCardWidth() {
+  const card = cards[0];
+  const style = getComputedStyle(card);
+  return card.offsetWidth + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+}
+
+function goTo(index) {
+  current = Math.max(0, Math.min(index, maxIndex));
+  slider.style.transform = `translateX(-${current * getCardWidth()}px)`;
+  cards.forEach((c, i) => c.classList.toggle('active-card', i === current));
+  document.querySelectorAll('.t-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+}
+
+document.getElementById('tPrev').addEventListener('click', () => goTo(current - 1));
+document.getElementById('tNext').addEventListener('click', () => goTo(current + 1));
+
+// Auto-advance
+let autoPlay = setInterval(() => goTo((current + 1) > maxIndex ? 0 : current + 1), 4500);
+slider.parentElement.addEventListener('mouseenter', () => clearInterval(autoPlay));
+slider.parentElement.addEventListener('mouseleave', () => {
+  autoPlay = setInterval(() => goTo((current + 1) > maxIndex ? 0 : current + 1), 4500);
+});
+
+window.addEventListener('resize', () => {
+  visibleCount = window.innerWidth <= 600 ? 1 : 3;
+  maxIndex = Math.max(0, total - visibleCount);
+  goTo(Math.min(current, maxIndex));
+});
+
+// ── CONTACT FORM
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = document.getElementById('submitBtn');
+  const notice = document.getElementById('formNotice');
+
+  // Basic validation
+  const required = form.querySelectorAll('[required]');
+  let valid = true;
+  required.forEach(field => {
+    if (!field.value.trim()) { field.style.borderColor = '#e53e3e'; valid = false; }
+    else field.style.borderColor = '';
+  });
+  if (!valid) {
+    notice.className = 'form-notice error';
+    notice.textContent = 'Please fill in all required fields.';
+    return;
+  }
+
+  // Loading state
+  btn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
+  btn.style.opacity = '0.7';
+  btn.style.pointerEvents = 'none';
+  notice.className = 'form-notice';
+  notice.style.display = 'none';
+
+  // Submit to Formspree
+  // IMPORTANT: Replace "YOUR_FORM_ID" below with your actual Formspree form ID
+  // Get it free at https://formspree.io → New Form → copy the ID from the endpoint
+  const FORMSPREE_ID = 'YOUR_FORM_ID';
+
+  try {
+    const data = new FormData(form);
+    const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+      btn.innerHTML = '<span>Message Sent!</span><i class="fas fa-check"></i>';
+      btn.style.background = '#059669';
+      btn.style.opacity = '1';
+      notice.className = 'form-notice success';
+      notice.textContent = 'Thank you! We\'ll be in touch within 24 hours.';
+      form.reset();
+      setTimeout(() => {
+        btn.innerHTML = '<span>Send Message</span><i class="fas fa-paper-plane"></i>';
+        btn.style.background = '';
+        btn.style.pointerEvents = '';
+        notice.style.display = 'none';
+      }, 5000);
+    } else {
+      const json = await res.json();
+      throw new Error(json?.errors?.[0]?.message || 'Submission failed');
+    }
+  } catch (err) {
+    btn.innerHTML = '<span>Send Message</span><i class="fas fa-paper-plane"></i>';
+    btn.style.opacity = '1';
+    btn.style.pointerEvents = '';
+    notice.className = 'form-notice error';
+    notice.textContent = 'Something went wrong. Please email us directly at cprimeventures@gmail.com';
+  }
+});
+</script>
+</body>
+</html>
